@@ -3,8 +3,7 @@
 require('cross-fetch/polyfill');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-    document.getElementById(missionTarget).innerHTML =
-
+    document.getElementById("missionTarget").innerHTML = 
     `
                  <h2>Mission Destination</h2>
                  <ol>
@@ -15,16 +14,16 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                      <li>Number of Moons: ${moons} </li>
                  </ol>
                  <img src="${imageUrl}">
-    `
+    `;
  }
  
  function validateInput(testInput) {
     if(testInput === ""){
-        return console.log("Empty");
-    } else if(isNaN(testInput)){
-        return console.log("Not a Number")
+        return "Empty";
+    } else if (isNaN(testInput)) {
+        return "Not a Number"
     }
-    return console.log("Is a Number")
+    return "Is a Number"
     
  }
  
@@ -38,27 +37,27 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         alert("All fields are required");
     }
 
-     document.getElementById(pilotStatus).innerHTML =`Pilot ${pilot} Ready`;
-     document.getElementById(copilotStatus).innerHTML = `Co-Pilot ${copilot} Ready`;
+     document.getElementById("pilotStatus").innerHTML =`Pilot ${pilot} Ready`;
+     document.getElementById("copilotStatus").innerHTML = `Co-Pilot ${copilot} Ready`;
      if(fuelLevel < 10000){
-        document.getElementById(faultyItems).style.visibility = "visible";
-        document.getElementById(fuelStatus).innerHTML = `Not enough fuel for the journey`;
-        document.getElementById(launchStatus).innerHTML = `Shuttle not ready for launch`;
-        document.getElementById(launchStatus).style.color = "red";
+        document.getElementById("faultyItems").style.visibility = "visible";
+        document.getElementById("fuelStatus").innerHTML = `Not enough fuel for the journey`;
+        document.getElementById("launchStatus").innerHTML = `Shuttle not ready for launch`;
+        document.getElementById("launchStatus").style.color = "red";
         }else{
-            document.getElementById(fuelStatus).innerHTML = `Enough fuel for journey`
+            document.getElementById("fuelStatus").innerHTML = `Enough fuel for journey`
         }
      if(cargoLevel > 10000){
-        document.getElementById(cargoStatus).style.visibility = "visible";
-        document.getElementById(cargoStatus).innerHTML = `Cargo mass too heavy for launch`;
-        document.getElementById(launchStatus).style.color = "red";
-        document.getElementById(launchStatus).innerHTML = `Shuttle not ready for launch`;
+        document.getElementById("cargoStatus").style.visibility = "visible";
+        document.getElementById("cargoStatus").innerHTML = `Cargo mass too heavy for launch`;
+        document.getElementById("launchStatus").style.color = "red";
+        document.getElementById("launchStatus").innerHTML = `Shuttle not ready for launch`;
      }else {
-         document.getElementById(cargoStatus).innerHTML = `Cargo mass low enough for launch`;
+         document.getElementById("cargoStatus").innerHTML = `Cargo mass low enough for launch`;
         }
      if(cargoLevel > 10000 && fuelLevel > 10000){
-        document.getElementById(launchStatus).style.color = "green";
-        document.getElementById(launchStatus).innerHTML = `Shuttle ready for launch`;
+        document.getElementById("launchStatus").style.color = "green";
+        document.getElementById("launchStatus").innerHTML = `Shuttle ready for launch`;
      }
     
     
@@ -75,8 +74,8 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  }
  
  function pickPlanet(planets) {
-    const randomNum = math.floor(math.random() * planets.length);
-    return planets[randomNum];
+    const randomIndex = Math.floor(Math.random() * planets.length);
+    return planets[randomIndex];
  }
  
  module.exports.addDestinationInfo = addDestinationInfo;
