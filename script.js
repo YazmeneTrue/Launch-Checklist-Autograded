@@ -17,5 +17,20 @@ window.addEventListener("load", function() {
         addDestinationInfo(document, randomPlanet.name, randomPlanet.diameter, randomPlanet.star, randomPlanet.distance, randomPlanet.moons, randomPlanet.image);
     });
         // Any additional logic you want to add
+        const form = document.querySelector("form");
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+            validateInput(document.getElementById("pilot").value);
+            validateInput(document.getElementById("copilot").value);
+            validateInput(document.getElementById("fuelLevel").value);
+            validateInput(document.getElementById("cargoLevel").value);
+            formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
+
+
+        })
     
  });
+
+
+
+ 

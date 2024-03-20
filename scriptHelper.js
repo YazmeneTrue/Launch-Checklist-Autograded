@@ -37,12 +37,12 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         alert("All fields are required");
     }
 
-     document.getElementById("pilotStatus").innerHTML =`Pilot ${pilot} Ready`;
-     document.getElementById("copilotStatus").innerHTML = `Co-Pilot ${copilot} Ready`;
+     document.getElementById("pilotStatus").innerHTML =`Pilot ${pilot} is ready for Launch`;
+     document.getElementById("copilotStatus").innerHTML = `Co-Pilot ${copilot} is ready for Launch`;
      if(fuelLevel < 10000){
         document.getElementById("faultyItems").style.visibility = "visible";
-        document.getElementById("fuelStatus").innerHTML = `Not enough fuel for the journey`;
-        document.getElementById("launchStatus").innerHTML = `Shuttle not ready for launch`;
+        document.getElementById("fuelStatus").innerHTML = `fuel level too low for launch`;
+        document.getElementById("launchStatus").innerHTML = `Shuttle Not Ready for Launch`;
         document.getElementById("launchStatus").style.color = "red";
         }else{
             document.getElementById("fuelStatus").innerHTML = `Enough fuel for journey`
@@ -51,14 +51,14 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         document.getElementById("cargoStatus").style.visibility = "visible";
         document.getElementById("cargoStatus").innerHTML = `Cargo mass too heavy for launch`;
         document.getElementById("launchStatus").style.color = "red";
-        document.getElementById("launchStatus").innerHTML = `Shuttle not ready for launch`;
+        document.getElementById("launchStatus").innerHTML = `Shuttle Not Ready for launch`;
      }else {
          document.getElementById("cargoStatus").innerHTML = `Cargo mass low enough for launch`;
         }
-     if(cargoLevel > 10000 && fuelLevel > 10000){
-        document.getElementById("launchStatus").style.color = "green";
-        document.getElementById("launchStatus").innerHTML = `Shuttle ready for launch`;
-     }
+      if(fuelLevel < 10000 && cargoLevel > 10000){
+            document.getElementById("launchStatus").style.color = "red";
+            document.getElementById("launchStatus").innerHTML = `Shuttle is not ready for launch`;
+         }
     
     
  }
